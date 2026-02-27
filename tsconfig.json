@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-
-    "strict": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "rootDir": "src",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-
-    "sourceMap": true,
-    "outDir": "dist"
-  },
-  "include": ["src"]
+    "strict": true,
+    "skipLibCheck": true
+  }
 }

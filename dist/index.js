@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import path from "path";
-
 import authRoutes from "./routes/auth.routes.js";
 import meRoutes from "./routes/me.routes.js";
 import dashboardRoutes from "./routes/dashboard.routes.js";
@@ -11,9 +10,7 @@ import adminRoutes from "./routes/admin.routes.js";
 import productosRoutes from "./routes/productos.routes.js";
 import clientesRoutes from "./routes/clientes.routes.js";
 import facturasCamionRoutes from "./routes/facturasCamion.routes.js";
-
 import ubicacionRoutes from "./routes/ubicacion.routes.js";
-
 import stockCamionRoutes from "./routes/stockCamion.routes.js";
 import cajaCamionRoutes from "./routes/cajaCamion.routes.js";
 import kardexRoutes from "./routes/kardex.routes.js";
@@ -21,22 +18,18 @@ import devolucionesRoutes from "./routes/devolucionesCamion.routes.js";
 import transferenciasRoutes from "./routes/transferencias.routes.js";
 import stockPlantaRoutes from "./routes/stockPlanta.routes.js";
 const app = express();
-
 app.use(cors());
 app.use(express.json());
-
 // ✅ servir PDFs subidos
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
-
 app.get("/health", (_req, res) => res.json({ ok: true }));
-
 app.use("/auth", authRoutes);
 app.use("/me", meRoutes);
 app.use("/dashboard", dashboardRoutes);
 app.use("/transferencias", transferenciasRoutes);
 app.use("/facturas", facturasRoutes);
 app.use("/productos", productosRoutes);
-app.use("/clientes", clientesRoutes);// ✅ FALTA ESTO
+app.use("/clientes", clientesRoutes); // ✅ FALTA ESTO
 app.use("/facturas-camion", facturasCamionRoutes);
 app.use("/ubicacion", ubicacionRoutes);
 app.use("/caja-camion", cajaCamionRoutes);
@@ -46,6 +39,5 @@ app.use("/stock-planta", stockPlantaRoutes);
 app.use("/kardex", kardexRoutes);
 // ✅ ADMIN CRUD TOTAL (solo ADMIN)
 app.use("/admin", adminRoutes);
-
 const port = Number(process.env.PORT || 3000);
 app.listen(port, () => console.log(`API corriendo en http://localhost:${port}`));
