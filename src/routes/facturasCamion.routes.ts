@@ -3,7 +3,7 @@ import { auth, requireRole } from "../middlewares/auth.js";
 import {
   listarFacturasCamion,
   obtenerFacturaCamion
-} from "../controllers/facturascamion.controller.js";
+} from "../controllers/facturasCamion.controller.js";
 
 const router = Router();
 
